@@ -26,9 +26,9 @@ def buy_stock(stock_to_buy):
 
 
 def lambda_handler(event, context):
-    max_stock_price = 100
-    min_stock_price = 20
-
+    max_stock_price = 500
+    min_stock_price = 100
+    print(f'Min price: {min_stock_price} Max price: {max_stock_price}')
     # Pick the stock to buy
     print("Downloading all assets...")
     assets = api.list_assets(status="active")
