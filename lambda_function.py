@@ -35,6 +35,7 @@ def lambda_handler(event, context):
     print("Filtering by only tradeable assets...")
     tradeable_assets = [asset for asset in assets if asset.tradable]
     symbols = [s.symbol for s in tradeable_assets]
+    symbols = list(filter(lambda x: '/' not in x, symbols))
     print("Getting market price for all assets...")
     snapshot = api.get_snapshots(symbols)
     print("Filtering by price range...")
